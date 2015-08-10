@@ -40,9 +40,10 @@ class Hand:
     # Assumes deck is already shuffled
     def __str__(self):
         string = ""
-        i = 0
+        i = 1
         for card in self.cards:
             string += "Card " + str(i) + ":" + str(card) + "\n"
+            i += 1
         return string
     def draw(self,deck,num):
         num_in_hand = len(self.cards)

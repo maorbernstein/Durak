@@ -1,4 +1,5 @@
 import random
+import pygame
 import AI
 from Classes import *
 
@@ -74,6 +75,7 @@ def UserTurn(game):
             else:
                 string += "Play " + str(possible)
             print string
+            i += 1
         option = input("Select Option: ")
         card_played =  possibles[option - 1]
         if(card_played == Card(0,0)):
@@ -95,17 +97,19 @@ def AITurn(game):
     card_played = AI.FirstCard(game.ai_hand)
     game.ai_hand.cards.remove(card_played)
     game.inplay.attacks.append(card_played)
-    print "Computer plays " + str(card_played)
+    print "Computer played " + str(card_played)
     while(True):
         possibles = FindDefensePossibles(card_played,game.user_hand,game.trump)
         print "Options are:"
         i = 1
         for possible in possibles:
-            string = "Option " + str(i)
+            string = "Option " + str(i) + ": "
             if(possible == Card(0,0)):
                 string += "Take cards"
             else:
                 string += "Play " + str(possible)
+            print string
+            i += 1
         option = input("Select Option")
         card_played = possibles[option]
         if(card_played == Card(0,0)):
