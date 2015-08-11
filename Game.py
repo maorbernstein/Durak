@@ -139,7 +139,7 @@ def AITurn(game):
 
 
 if __name__ == "__main__":
-    
+    pygame.init()
     game = Game()
     done = False
     while not done:
