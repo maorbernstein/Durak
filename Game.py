@@ -1,5 +1,4 @@
 import random
-import pygame
 import AI
 from Classes import *
 
@@ -140,9 +139,14 @@ def AITurn(game):
 
 
 if __name__ == "__main__":
+    
     game = Game()
-    if(game.First):
-        UserTurn(game)
-    while(True):
-        AITurn(game)
-        UserTurn(game)
+    done = False
+    while not done:
+        for event in pygame.event.get():
+                done = event.type == pygame.QUIT
+    # if(game.First):
+    #     UserTurn(game)
+    # while(True):
+    #     AITurn(game)
+    #     UserTurn(game)
